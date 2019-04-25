@@ -6,24 +6,38 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid *ngIf="level === 1">
-    <ion-row>
+<ion-content padding class="content" >
+  <div class="header">
+      <div id="countdown">
+          <div id="countdownNumber"></div>
+          <svg>
+            <circle r="18" cx="20" cy="20"></circle>
+          </svg>
+        </div>
+        <div class="score">
+          score : {{score}}
+        </div>
+  </div>
+  <div class="items">
+
+  </div>
+  <ion-grid>
+    <!-- ion-row>
       <ion-col>
-        niveau : 1
+        niveau : {{level}}
       </ion-col>
       <ion-col>
         score : {{score}}
       </ion-col>
-    </ion-row>
+    </ion-row> -->
     <ion-row align-items-center>
-      <ion-col>
-          <span ngClass="{{items.color}}">{{items.item}}</span>
+      <ion-col col-6 offset-3 text-center>
+          <p class="itemSpan" ngClass="{{items.color}}">{{items.item}}</p>
       </ion-col>
     </ion-row>
-    <ion-row>
-        <ion-col><button ion-button (click)="onAnswer($event, true)">oui</button></ion-col>
-        <ion-col><button ion-button (click)="onAnswer($event, false)">non</button></ion-col>
+    <ion-row class="ion-justify-content-end">
+        <ion-col  col-3 offset-1 text-center><button class="buttonResponse" ion-button (click)="onAnswer($event, true)"> oui</button></ion-col>
+        <ion-col  col-3 offset-1 text-center><button  class="buttonResponse"  ion-button (click)="onAnswer($event, false)">non</button></ion-col>
     </ion-row>
   </ion-grid>
 

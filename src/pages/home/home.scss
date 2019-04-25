@@ -1,6 +1,18 @@
 page-home {
-  span {
-    font-size: 25px;
+.content{
+
+}
+.header{
+  position: relative;
+}
+.score{
+position: absolute;
+top:10px;
+right: 50px;
+}
+
+  p {
+    font-size: 50px;
   }
   .yellow {
     color: yellow;
@@ -14,4 +26,54 @@ page-home {
   .black {
     color: black;
   }
+  .pink{
+    color: pink;
+  }
+
+#countdown {
+  position: relative;
+  margin: auto;
+  //margin-top: 100px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+#countdownNumber {
+  color: blue;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: blue;
+  fill: none;
+  animation: countdown 60s linear /* infinite */ forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+  /* .buttonResponse{
+    position: fixed;
+    bottom: 50px;
+  } */
 }
