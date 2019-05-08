@@ -7,21 +7,24 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CommonModule } from '@angular/common';
+import { ModalPage } from '../pages/modal/modal';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalPage
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalPage
   ],
   providers: [
     StatusBar,

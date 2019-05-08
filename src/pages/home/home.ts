@@ -1,8 +1,8 @@
 import { Component, ViewChild } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ModalController, IonicPage } from "ionic-angular";
 import * as moment from "moment";
 import { responsesTimes } from "../../models/responses";
-
+import { ModalPage } from '../modal/modal';
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -18,13 +18,13 @@ export class HomePage {
     { id: "6", item: "vert", color: "yellow", response: false },
     { id: "7", item: "vert", color: "red", response: false },
     { id: "8", item: "vert", color: "blue", response: false },
-    { id: "9", item: "vert", color: "black", response: false },
+    { id: "9", item: "vert", color: "black", response: false }, //
     { id: "10", item: "bleu", color: "blue", response: true },
     { id: "11", item: "bleu", color: "yellow", response: false },
     { id: "12", item: "bleu", color: "red", response: false },
     { id: "13", item: "bleu", color: "black", response: false },
     { id: "14", item: "bleu", color: "green", response: false },
-    { id: "15", item: "noir", color: "black", response: true },
+    { id: "15", item: "noir", color: "black", response: true }, //
     { id: "16", item: "noir", color: "yellow", response: false },
     { id: "17", item: "noir", color: "red", response: false },
     { id: "18", item: "noir", color: "green", response: false },
@@ -47,9 +47,10 @@ export class HomePage {
   public recordTime: Array<responsesTimes> = new Array<responsesTimes>();
   public element: HTMLElement;
   public countdownNumberEl: any;
-  public countdown : Number = 60;
+  public countdown: Number = 60;
+  public icons: number;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.itemRandomly();
     this.resetTime();
     // this.clockTimer();
@@ -63,16 +64,23 @@ export class HomePage {
   }
 
   clockTimer() {
-    var countdown = 60;
+    var countdown = 5;
 
-    setInterval(function() {
-        countdown = --countdown /* <= 0 ? 60 : countdown; */
-        if(countdown >= 0){
+    setInterval(function () {
+      countdown = --countdown; /* <= 0 ? 60 : countdown; */
+      if (countdown >= 0) {
         this.countdownNumberEl = document.getElementById("countdownNumber");
         this.countdownNumberEl.textContent = countdown;
+      } else if (countdown === -1) {
+        //quand counting fini modal avec les taux et resultats
+        // Modal ou navigation de page
       }
     }, 1000);
 
+  }
+
+  chgmtPage() {
+    this.navCtrl.push(ModalPage);
   }
 
   itemRandomly() {
@@ -105,25 +113,31 @@ export class HomePage {
     }
 
     if (response === this.item.response) {
+      console.log("la reponse est " + response + " et correspond à " + this.item.response);
+
       this.score += 1;
       let accuracy = true;
+      this.icons = 1;
       this.recordingScore(accuracy, this.diffTime);
     } else {
       let accuracy = false;
+      this.icons = 0;
       this.recordingScore(accuracy, this.diffTime);
     }
-    /*  if(this.score >= 11){
-      this.itemRandomlyStepTwo();
-    } */
+
     this.resetTime();
     this.itemRandomly();
+
   }
+
 
   recordingScore(response, time) {
     let record = { accuracy: response, timeUser: time };
     this.recordTime.push(record);
     console.log(this.recordTime);
   }
+
+
 
   nextTest() {
     /* faire passer à un autre niveau si un score de 10 atteint */
