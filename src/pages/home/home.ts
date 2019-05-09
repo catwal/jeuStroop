@@ -65,23 +65,21 @@ export class HomePage {
 
   clockTimer() {
     var countdown = 5;
-
-    setInterval(function () {
-      countdown = --countdown; /* <= 0 ? 60 : countdown; */
-      if (countdown >= 0) {
-        this.countdownNumberEl = document.getElementById("countdownNumber");
-        this.countdownNumberEl.textContent = countdown;
-      } else if (countdown === -1) {
-        //quand counting fini modal avec les taux et resultats
-        // Modal ou navigation de page
-      }
-    }, 1000);
-
+      setInterval(()=> {
+        countdown = --countdown; /* <= 0 ? 60 : countdown; */
+        if (countdown >= 0) {
+          this.countdownNumberEl = document.getElementById("countdownNumber");
+          this.countdownNumberEl.textContent = countdown;
+        } else if (countdown === -1) {
+          //quand counting fini modal avec les taux et resultats
+          // Modal ou navigation de page
+          console.log('fin');
+          this.navCtrl.push(ModalPage);
+        }
+      }, 1000);
+   
   }
 
-  chgmtPage() {
-    this.navCtrl.push(ModalPage);
-  }
 
   itemRandomly() {
     this.item = this.order1[Math.floor(Math.random() * this.order1.length)];
