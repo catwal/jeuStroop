@@ -74,7 +74,7 @@ export class HomePage {
           //quand counting fini modal avec les taux et resultats
           // Modal ou navigation de page
           console.log('fin');
-          this.navCtrl.push(ModalPage);
+          this.navCtrl.push(ModalPage, {data: this.recordTime});
         }
       }, 1000);
    
