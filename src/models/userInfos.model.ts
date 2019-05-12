@@ -3,7 +3,7 @@ export class UserInfos {
     pseudo: string;
     age: number;
     gender: string;
-    width: number;
+    size: number;
     weigth: number;
 
 }

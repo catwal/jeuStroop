@@ -8,20 +8,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CommonModule } from '@angular/common';
 import { ModalPage } from '../pages/modal/modal';
-import { AlcoholInfoPage } from '../pages/alcohol-info/alcohol-info';
 import { InfoUserPage } from '../pages/info-user/info-user';
 import { MomentoPage } from '../pages/momento/momento';
 import { ReactionTimePage } from '../pages/reaction-time/reaction-time';
+import { AlcoholInfoPage } from '../pages/alcohol-info/alcohol-info';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ModalPage,
-    AlcoholInfoPage,
     InfoUserPage,
     MomentoPage,
-    ReactionTimePage
+    ReactionTimePage,
+    AlcoholInfoPage
   ],
   imports: [
     BrowserModule,
@@ -33,10 +33,10 @@ import { ReactionTimePage } from '../pages/reaction-time/reaction-time';
     MyApp,
     HomePage,
     ModalPage,
-    AlcoholInfoPage,
     InfoUserPage,
     MomentoPage,
-    ReactionTimePage
+    ReactionTimePage,
+    AlcoholInfoPage
   ],
   providers: [
     StatusBar,
