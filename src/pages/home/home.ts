@@ -1,7 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { NavController, ModalController, IonicPage } from "ionic-angular";
 import * as moment from "moment";
-import { responsesTimes } from "../../models/responses";
+import { responsesTimes } from "../../models/stroopResponses";
 import { ModalPage } from '../modal/modal';
 @Component({
   selector: "page-home",
