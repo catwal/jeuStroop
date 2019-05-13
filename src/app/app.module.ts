@@ -12,6 +12,7 @@ import { InfoUserPage } from '../pages/info-user/info-user';
 import { MomentoPage } from '../pages/momento/momento';
 import { ReactionTimePage } from '../pages/reaction-time/reaction-time';
 import { AlcoholInfoPage } from '../pages/alcohol-info/alcohol-info';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AlcoholInfoPage } from '../pages/alcohol-info/alcohol-info';
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

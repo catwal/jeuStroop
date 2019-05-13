@@ -34,4 +34,8 @@ private userData: FormGroup;
     console.log('ionViewDidLoad InfoUserPage');
   }
 
+  onSubmit(f){
+console.log(f.value);
+
+  }
 }

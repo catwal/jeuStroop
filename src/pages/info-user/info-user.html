@@ -11,5 +11,42 @@
 </ion-header>
 
 <ion-content padding>
+  <form #form="ngForm" [formGroup]="userData" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Pseudo : </ion-label>
+        <ion-input type="text" formControlName="pseudo" placeholder="monique"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Age :</ion-label>
+        <ion-input type="number" min="18" formControlName="age" placeholder="18 ans minimum"></ion-input>
+      </ion-item>
+   
+      <ion-item-group radio-group formControlName="gender">
+        <ion-label>Genre :</ion-label>
+        <ion-item>
+          <ion-label>Femme</ion-label>
+          <ion-radio value="femme" ></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>Homme</ion-label>
+            <ion-radio value="homme">
+              <!--  -->
+            </ion-radio>
+        </ion-item>
+      </ion-item-group>
 
+      <ion-item>
+        <ion-label>Taille :</ion-label>
+        <ion-input type="text" formControlName="size" placeholder="en cm"></ion-input>
+
+      </ion-item>
+      <ion-item>
+          <ion-label>Poids :</ion-label>
+          <ion-input type="text" formControlName="weigth" placeholder="en kg"></ion-input>
+  
+        </ion-item>
+      <button ion-button type="submit" block [disabled]="userData.invalid">Soummettre</button>
+    </ion-list>
+  </form>
 </ion-content>
