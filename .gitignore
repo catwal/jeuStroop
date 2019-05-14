@@ -1,6 +1,7 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+
 *~
 *.sw[mnpcod]
 *.log
@@ -29,7 +30,12 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
+environments/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+#si pb avec git ignore
+#git rm -r --cached .
+
