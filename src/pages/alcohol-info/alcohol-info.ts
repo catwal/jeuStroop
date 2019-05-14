@@ -16,6 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AlcoholInfoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+ var user = this.navParams.get('user')
+ console.log(user);
+ var userLocal = localStorage.getItem('FIRST_CONNEXION');
+ console.log(userLocal);
+ 
   }
 
   ionViewDidLoad() {
