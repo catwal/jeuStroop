@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserInfos } from '../../models/userInfos.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlcoholInfoPage } from '../alcohol-info/alcohol-info';
+import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 /**
  * Generated class for the InfoUserPage page.
  *
@@ -18,7 +19,7 @@ import { AlcoholInfoPage } from '../alcohol-info/alcohol-info';
 export class InfoUserPage {
   private userData: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fromBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fromBuilder: FormBuilder, public firebaseService: FirebaseServiceProvider) {
     this.userData = this.fromBuilder.group({
       pseudo: ['', Validators.compose([Validators.required])],
       age: ['', Validators.compose([Validators.required])],
@@ -38,6 +39,7 @@ export class InfoUserPage {
       var user: Array<UserInfos> = new Array<UserInfos>();
       user = this.userData.value;
       localStorage.setItem('FIRST_CONNEXION', JSON.stringify(user))
+      this.firebaseService.addUser(user);
       /* faire la connection a firebase et quand reçu passage à alcohol info */
       this.navCtrl.push(AlcoholInfoPage, { user: user })
     }

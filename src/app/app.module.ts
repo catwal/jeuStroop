@@ -13,6 +13,11 @@ import { MomentoPage } from '../pages/momento/momento';
 import { ReactionTimePage } from '../pages/reaction-time/reaction-time';
 import { AlcoholInfoPage } from '../pages/alcohol-info/alcohol-info';
 import { FormsModule } from '@angular/forms';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -43,7 +51,8 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}
