@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+   // AngularFirestoreModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

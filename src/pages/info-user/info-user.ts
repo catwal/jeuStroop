@@ -19,8 +19,8 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 export class InfoUserPage {
   private userData: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fromBuilder: FormBuilder, public firebaseService: FirebaseServiceProvider) {
-    this.userData = this.fromBuilder.group({
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public firebaseService: FirebaseServiceProvider) {
+    this.userData = this.formBuilder.group({
       pseudo: ['', Validators.compose([Validators.required])],
       age: ['', Validators.compose([Validators.required])],
       gender: ['', Validators.compose([Validators.required])],

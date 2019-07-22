@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase/app'
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
@@ -12,13 +13,14 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 @Injectable()
 export class FirebaseServiceProvider {
 
-  constructor(public http: HttpClient/* , public afs: AngularFirestore */) {
+  constructor(public http: HttpClient) {
     console.log('Hello FirebaseServiceProvider Provider');
   }
 
    addUser(value) {
-    /* return new Promise<any>((resolve, reject) => {
-      this.afs.collection('/users').add({
+     return new Promise<any>((resolve, reject) => {
+
+    /*  this.afs.collection('/users').add({
         value
       })
         .then(
@@ -26,8 +28,8 @@ export class FirebaseServiceProvider {
             resolve(res)
           },
           err => reject(err)
-        )
-    }) */
+        )*/
+    })
   } 
 }
 
